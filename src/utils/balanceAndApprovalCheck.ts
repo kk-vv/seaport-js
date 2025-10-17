@@ -47,6 +47,7 @@ const findBalanceAndApproval = (
       token: checkedToken,
       identifierOrCriteria: checkedIdentifierOrCriteria,
     }) => {
+      console.log('====balanceAndApproval check:', token, checkedToken, checkedIdentifierOrCriteria, identifierOrCriteria)
       if (typeof checkedIdentifierOrCriteria === 'string') {
         return token.toLowerCase() === checkedToken.toLowerCase() &&
           checkedIdentifierOrCriteria.toLowerCase() ===
