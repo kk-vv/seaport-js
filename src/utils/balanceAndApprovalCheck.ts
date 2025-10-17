@@ -46,10 +46,17 @@ const findBalanceAndApproval = (
     ({
       token: checkedToken,
       identifierOrCriteria: checkedIdentifierOrCriteria,
-    }) =>
-      (typeof checkedIdentifierOrCriteria === 'string') && token.toLowerCase() === checkedToken.toLowerCase() &&
-      checkedIdentifierOrCriteria.toLowerCase() ===
-        identifierOrCriteria.toLowerCase(),
+    }) => {
+      if (typeof checkedIdentifierOrCriteria === 'string') {
+        return token.toLowerCase() === checkedToken.toLowerCase() &&
+          checkedIdentifierOrCriteria.toLowerCase() ===
+          identifierOrCriteria.toLowerCase()
+      } else {
+        return token.toLowerCase() === checkedToken.toLowerCase() &&
+          checkedIdentifierOrCriteria ===
+          identifierOrCriteria
+      }
+    }
   );
 
   if (!balanceAndApproval) {
